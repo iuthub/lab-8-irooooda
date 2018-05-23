@@ -2,9 +2,9 @@
 
 ## Student Details
 
-- Student ID: `U1610092`
-- Student Name: `Odilkhujaev Jamoliddinkhuja`
-- Section Number: `002`
+- Student ID: `U1610080`
+- Student Name: `Iroda Ulmasboeva`
+- Section Number: `001`
 
 ## Tasks
 Finish following tasks in this project:
