@@ -1,7 +1,8 @@
 <?php
 
 namespace App;
-
+use Illuminate\Support\Facades;
+use Session;
 class Post
 {
     public function getPosts($session)
@@ -36,6 +37,12 @@ class Post
         $posts[$id] = ['title' => $title, 'content' => $content];
         $session->put('posts', $posts);
     }
+    public function deletePost($session, $id)
+    {
+        return $session->flush('posts')[$id];
+
+    }
+
 
     private function createDummyData($session)
     {
@@ -50,5 +57,13 @@ class Post
             ]
         ];
         $session->put('posts', $posts);
+    }
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag');
     }
 }

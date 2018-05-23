@@ -42,6 +42,14 @@ class PostController extends Controller
         $post = $post->getPost($session, $id);
         return view('admin.edit', ['post' => $post, 'postId' => $id]);
     }
+    public function getAdminDelete(Store $session, $id)
+    {
+        $post = new Post();
+        $post = $post->deletePost($session, $id);
+
+
+        return redirect()->route('admin.index')->with('info', 'Post deleted');
+    }
 
     public function postAdminCreate(Store $session, Request $request)
     {
@@ -64,4 +72,6 @@ class PostController extends Controller
         $post->editPost($session, $request->input('id'), $request->input('title'), $request->input('content'));
         return redirect()->route('admin.index')->with('info', 'Post edited, new Title is: ' . $request->input('title'));
     }
+
+
 }
